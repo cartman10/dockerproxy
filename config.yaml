@@ -1,5 +1,5 @@
-name: dockerproxy
-description: "Proxies the docker.sock to enable container monitoring"
+name: Docker Proxy
+description: "Proxies the Docker.sock to enable container monitoring"
 version: "0.3.0"
 slug: dockerproxy
 arch:
@@ -11,18 +11,14 @@ arch:
 startup: services
 boot: auto
 host_network: true
-privileged:
- - NET_ADMIN
- - SYS_ADMIN
- - DAC_READ_SEARCH
-full_access: true
+privileged: []
 options: {}
 schema: {}
 image: "tecnativa/docker-socket-proxy"
 ports:
   2375/tcp: 2375
 volumes:
-  - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Socket access
+  - "/var/run/docker.sock:/var/run/docker.sock"
 environment:
   BUILD: "1"
   COMMIT: "1"
@@ -36,7 +32,7 @@ environment:
   NODES: "1"
   PLUGINS: "1"
   SERVICES: "1"
-  SESSION: "1"
+  SESSSION: "1"
   SWARM: "1"
   SYSTEM: "1"
   TASKS: "1"

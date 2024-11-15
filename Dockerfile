@@ -1,0 +1,1 @@
+FROM tecnativa/docker-socket-proxy
